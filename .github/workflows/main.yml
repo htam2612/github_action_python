@@ -4,19 +4,14 @@ on: [push]
 jobs:
   get-num-square:
     runs-on: ubuntu-latest
-    name: Return the number squared
+    name: Retunrs the number square
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Calculate square
-        id: square
-        uses: actions/setup-node@v2
+      - name: Fetch num squared
+        id: get_square
+        uses: actions/setup-node@v2 # Uses an action in the root directory
         with:
-          script: |
-            echo "::set-output name=num_squared::$((${{ github.event.inputs.num }} * ${{ github.event.inputs.num }}))"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          num: 11
       - name: Print the square
-        run: echo "${{ steps.square.outputs.num_squared }}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: echo "${{ steps.get_square.outputs.num_squared }}"
