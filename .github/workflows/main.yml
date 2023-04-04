@@ -8,9 +8,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Fetch nem squared
+      - name: Fetch num squared
         id: get_square
-        uses: ./Uses an action in the root directory
+        uses: ./ # Uses an action in the root directory
         with:
           num: 11
       - name: Print the square
