@@ -1,6 +1,6 @@
 # action.yml
-name: 'Custom Github Action'
-description: 'A Github Action that takes an input and returns the square of the number'
+name: 'Custom GitHub Action'
+description: 'A GitHub Action that takes an input and returns the square of the number'
 inputs:
     num:
         description:'Enter a number'
@@ -21,7 +21,7 @@ runs:
           run: pip install -r requirements.txt
           shell: bash
         - name: Pass Inputs to Shell
-          run: 
+          run:
             echo "INPUT_NUM=${{ inputs.num }}" >> $GITHUB_ENV
           shell: bash
         - name: Fetch the number's square 
